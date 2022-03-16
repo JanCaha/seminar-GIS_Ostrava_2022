@@ -51,7 +51,7 @@ class WorkshopAlgorithm3(QgsProcessingAlgorithm):
 
         self.addParameter(
             QgsProcessingParameterDistance(self.BUFFER_SIZE,
-                                           "Buffer size (in units of Input layer)",
+                                           "Buffer size",
                                            parentParameterName=self.INPUT,
                                            defaultValue=10))
 
@@ -72,7 +72,7 @@ class WorkshopAlgorithm3(QgsProcessingAlgorithm):
         if buffer_size < 100:
             return (
                 False,
-                "The buffer size is set to `{}` which is small number and would likely produce results without meaning, the value should be at leas `100`."
+                "The buffer size is set to `{}` which is small number and would likely produce results without meaning, the value should be at least `100`."
                 .format(buffer_size))
 
         return super().checkParameterValues(parameters, context)

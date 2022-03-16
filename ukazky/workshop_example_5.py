@@ -57,7 +57,7 @@ class WorkshopAlgorithm5(QgsProcessingAlgorithm):
 
         self.addParameter(
             QgsProcessingParameterDistance(self.BUFFER_SIZE,
-                                           "Buffer size (in units of Input layer)",
+                                           "Buffer size",
                                            parentParameterName=self.INPUT,
                                            defaultValue=10))
 
@@ -80,7 +80,7 @@ class WorkshopAlgorithm5(QgsProcessingAlgorithm):
         if buffer_size < 100:
             return (
                 False,
-                "The buffer size is set to `{}` which is small number and would likely produce results without meaning, the value should be at leas `100`."
+                "The buffer size is set to `{}` which is small number and would likely produce results without meaning, the value should be at least `100`."
                 .format(buffer_size))
 
         return super().checkParameterValues(parameters, context)
@@ -129,7 +129,8 @@ class WorkshopAlgorithm5(QgsProcessingAlgorithm):
 
             feedback.setProgress(int(current * total))
 
-        return {self.OUTPUT: self.dest_id, self.FEATURE_COUNT: source.featureCount()}
+        return {self.OUTPUT: self.dest_id, 
+                self.FEATURE_COUNT: source.featureCount()}
 
     def postProcessAlgorithm(self, context: QgsProcessingContext, feedback: QgsProcessingFeedback):
 
@@ -149,4 +150,5 @@ class WorkshopAlgorithm5(QgsProcessingAlgorithm):
         output_layer.setRenderer(renderer)
         output_layer.triggerRepaint()
 
-        return {self.OUTPUT: self.dest_id}
+        return {self.OUTPUT: self.dest_id, 
+                self.FEATURE_COUNT: source.featureCount()}}

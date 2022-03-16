@@ -37,7 +37,7 @@ class WorkshopAlgorithm2(QgsProcessingAlgorithm):
 
         self.addParameter(
             QgsProcessingParameterDistance(self.BUFFER_SIZE,
-                                           "Buffer size (in units of Input layer)",
+                                           "Buffer size",
                                            parentParameterName=self.INPUT,
                                            defaultValue=10))
 
