@@ -151,4 +151,4 @@ class WorkshopAlgorithm5(QgsProcessingAlgorithm):
         output_layer.triggerRepaint()
 
         return {self.OUTPUT: self.dest_id, 
-                self.FEATURE_COUNT: source.featureCount()}}
+                self.FEATURE_COUNT: source.featureCount()}
