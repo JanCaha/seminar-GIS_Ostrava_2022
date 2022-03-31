@@ -5,3 +5,5 @@ Materiály k semináři.
 - prezentace 
 
 - ukázkové kódy
+
+- [video záznam semináře](https://www.youtube.com/watch?v=olSR3FNqnvE)
